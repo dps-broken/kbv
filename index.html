@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kar Beta Scroll</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #container {
+            width: 100%;
+            padding: 20px;
+            height: 2vw;
+            font-size: 2vw;
+        }
+
+        .box {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+    
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('container');
+            function createBox() {
+                const box = document.createElement('div');
+                box.className = 'box';
+                box.textContent = 'Kar beta scroll jitna man ho tera';
+                return box;
+            }
+            function addBoxes() {
+                for (let i = 0; i < 99; i++) {
+                    container.appendChild(createBox());
+                }
+            }
+            addBoxes();
+            window.addEventListener('scroll', function() {
+                if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                    addBoxes();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
